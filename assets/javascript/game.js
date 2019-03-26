@@ -138,7 +138,7 @@ $(document).ready(function () {
         }
 
         // if character has already been chosen, but an enemy hasn't...
-        else if (!enemyChosen) {
+        else if (!enemyChosen && clickedChar.hasClass("background-red")) {
 
             // loop through the potential enemies
             $(".character").each(function (index) {
@@ -162,6 +162,10 @@ $(document).ready(function () {
                 }
 
             });
+        }
+
+        else if (clickedChar.hasClass("background-white")) {
+            fightText.text("You cannot be your own Enemy!");
         }
 
         else if (clickedChar.hasClass("background-red")) {
