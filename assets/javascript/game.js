@@ -3,30 +3,30 @@ $(document).ready(function () {
     // Create playable characters
     var char1 = {
         name: "char1",
-        hp: 100,
+        hp: 120,
         attack: 6,
-        counter: 15,
+        counter: 18,
     }
 
     var char2 = {
         name: "char2",
-        hp: 120,
+        hp: 140,
         attack: 5,
-        counter: 20,
+        counter: 15,
     }
 
     var char3 = {
         name: "char3",
-        hp: 150,
+        hp: 160,
         attack: 4,
-        counter: 18,
+        counter: 12,
     }
 
     var char4 = {
         name: "char4",
         hp: 180,
         attack: 3,
-        counter: 12,
+        counter: 10,
     }
 
     // create array to hold characters
