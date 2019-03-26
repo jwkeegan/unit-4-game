@@ -87,7 +87,7 @@ $(document).ready(function () {
 
         // Remove restart button and clear fight-text
         fightText.empty();
-        fightText.removeClass("static");
+        fightText.text("Choose your Character!");
         restart.empty();
 
         // Reset values to be used during the fight sequence
@@ -135,6 +135,7 @@ $(document).ready(function () {
 
             // update boolean for future clicks
             characterChosen = true;
+            fightText.text("Choose your Enemy!");
 
         }
 
@@ -163,16 +164,18 @@ $(document).ready(function () {
                 }
 
             });
+
+            // update fight text
+            fightText.text("Press Attack to Fight!");
+
         }
 
         else if (clickedChar.hasClass("background-white")) {
             fightText.text("You cannot be your own Enemy!");
-            fightText.addClass("static");
         }
 
         else if (clickedChar.hasClass("background-red")) {
             fightText.text("Enemy already chosen! Continue current fight to move on!");
-            fightText.addClass("static");
         }
 
     }
@@ -205,8 +208,6 @@ $(document).ready(function () {
 
     // Create click event for attack button
     $("#attack-button").click(function () {
-
-        fightText.addClass("static");
 
         // if the game is over, tell the user to restart
         if (gameOver) {
