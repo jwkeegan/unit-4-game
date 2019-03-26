@@ -174,6 +174,7 @@ $(document).ready(function () {
     $(".character").click(function() {
         chooseCharacter($(this));
     });
+   
     // $("#char-0").click(function () {
     //     chooseCharacter($(this));
     // });
