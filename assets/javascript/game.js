@@ -2,28 +2,28 @@ $(document).ready(function () {
 
     // Create playable characters
     var char1 = {
-        name: "char1",
+        name: "Tom",
         hp: 120,
         attack: 6,
         counter: 18,
     }
 
     var char2 = {
-        name: "char2",
+        name: "Leslie",
         hp: 140,
         attack: 5,
         counter: 15,
     }
 
     var char3 = {
-        name: "char3",
+        name: "Andy",
         hp: 160,
         attack: 4,
         counter: 12,
     }
 
     var char4 = {
-        name: "char4",
+        name: "Ron",
         hp: 180,
         attack: 3,
         counter: 10,
@@ -33,7 +33,7 @@ $(document).ready(function () {
     var chars = [char1, char2, char3, char4];
 
     // create array to hold corresponding images
-    var images = ["../images/img1.png", "", "", ""];
+    var images = ["assets/images/Tom.jpg", "assets/images/Leslie.jpg", "assets/images/Andy.jpg", "assets/images/Ron.jpg"];
 
     // create hooks for important divs
     var selectChar = $("#select-character");
@@ -79,7 +79,7 @@ $(document).ready(function () {
             charDiv.attr("id", "char-" + i);
             charDiv.append("<div class='char-detail' id='char-name'>" + chars[i].name + "</div>");
             // charDiv.append("<img src='" + images[i] + "' />");
-            charDiv.append("<img src='https://via.placeholder.com/90' />");
+            charDiv.append("<img src=" + images[i] + " />");
             charDiv.append("<div class='char-detail' id='health-points'>" + chars[i].hp + "</div>");
 
             selectChar.append(charDiv);
@@ -87,6 +87,7 @@ $(document).ready(function () {
 
         // Remove restart button and clear fight-text
         fightText.empty();
+        fightText.removeClass("static");
         restart.empty();
 
         // Reset values to be used during the fight sequence
@@ -166,19 +167,21 @@ $(document).ready(function () {
 
         else if (clickedChar.hasClass("background-white")) {
             fightText.text("You cannot be your own Enemy!");
+            fightText.addClass("static");
         }
 
         else if (clickedChar.hasClass("background-red")) {
             fightText.text("Enemy already chosen! Continue current fight to move on!");
+            fightText.addClass("static");
         }
 
     }
 
     // Create click events for each character
-    $(".character").click(function() {
+    $(".character").click(function () {
         chooseCharacter($(this));
     });
-   
+
     // $("#char-0").click(function () {
     //     chooseCharacter($(this));
     // });
@@ -202,6 +205,8 @@ $(document).ready(function () {
 
     // Create click event for attack button
     $("#attack-button").click(function () {
+
+        fightText.addClass("static");
 
         // if the game is over, tell the user to restart
         if (gameOver) {
@@ -288,7 +293,11 @@ $(document).ready(function () {
                 if (curHP <= 0) {
 
                     // tell user that they are defeated
-                    fightText.append("<div>You have been defeated! You beat " + enemiesDefeated + " enemies!</div>");
+                    if (enemiesDefeated == 1) {
+                        fightText.append("<div>You have been defeated! You beat " + enemiesDefeated + " enemy!</div>");
+                    } else {
+                        fightText.append("<div>You have been defeated! You beat " + enemiesDefeated + " enemies!</div>");
+                    }
 
                     // tell user to press restart
                     fightText.append("<div>Press restart to play again!</div>");

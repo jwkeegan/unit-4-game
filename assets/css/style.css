@@ -1,3 +1,10 @@
+html {
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/City_hall.png");
+    background-size: 100% 100%;
+}
+
 div {
     clear: both;
     margin: 5px 0px 5px 10px;
@@ -5,40 +12,67 @@ div {
 
 .character {
     width: 150px;
-    height: 150px;
-    border: 1px solid black;
+    height: 130px;
     float: left;
     clear: none;
-    margin: 10px;
+}
+
+.static {
+    padding: 5px;
+    background-color: white;
+    border: 2px solid darkgray;
+
+    width: 220px;
+    text-align: center;
+    font-size: 18px;
+
+}
+
+#page-title {
+    font-size: 24px;
+}
+
+#select-character, #chosen-character, #enemies-remaining, #chosen-enemy {
+    margin-left: 40px;
+}
+
+#fight-text {
+    width: 350px;
+    clear: none;
+    float: left;
 }
 
 .background-white {
     background-color: white;
+    border: 2px solid green;
 }
 
 .background-red {
     background-color: red;
+    border: 2px solid black;
 }
 
 .background-gray {
     background-color: darkgray;
+    border: 2px solid red;
 }
 
 .char-detail {
-    height: 20%;
+    height: 20px;
     text-align: center;
     margin: 0 auto;
-    line-height: 2;
 }
 
 img {
-    height: 60%;
-    width: 60%;
+    height: 90px;
+    width: 90px;
     margin: 0px 30px;
 }
 
 button {
-    margin-left: 10px;
+    margin-left: 92px;
+    width: 70px;
+    height: 25px;
 }
 
 #restart {
